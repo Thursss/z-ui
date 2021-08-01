@@ -55,9 +55,9 @@ module.exports = {
       },
     ],
     'no-useless-escape': 2,
-    'prettier/prettier': 'error',
+    'prettier/prettier': 'warn',
     'import/extensions': [2, 'never', { 'web.js': 'never', json: 'never' }],
     'import/no-extraneous-dependencies': [2, { devDependencies: true }],
     'import/no-unresolved': [2, { ignore: ['antd-mobile'] }],
   },
-}
+};
