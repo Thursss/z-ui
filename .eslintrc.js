@@ -1,4 +1,11 @@
 module.exports = {
+  settings: {
+    'import/resolver': {
+      node: {
+        extensions: ['.js', '.jsx', '.ts', '.tsx'],
+      },
+    },
+  },
   // 为我们提供运行环境，一个环境定义了一组预定义的全局变量
   env: {
     browser: true,
@@ -35,6 +42,7 @@ module.exports = {
   // "warn" 或 1 - 开启规则，使用警告级别的错误：warn (不会导致程序退出)
   // "error" 或 2 - 开启规则，使用错误级别的错误：error (当被触发的时候，程序会退出)
   rules: {
+    'react/jsx-filename-extension': 'off',
     semi: 0,
     'no-unused-vars': [
       1,
@@ -48,5 +56,8 @@ module.exports = {
     ],
     'no-useless-escape': 2,
     'prettier/prettier': 'error',
+    'import/extensions': [2, 'never', { 'web.js': 'never', json: 'never' }],
+    'import/no-extraneous-dependencies': [2, { devDependencies: true }],
+    'import/no-unresolved': [2, { ignore: ['antd-mobile'] }],
   },
 }
