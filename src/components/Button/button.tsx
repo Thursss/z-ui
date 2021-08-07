@@ -19,9 +19,10 @@ type NativeButtonProps = BaseButtonProps & ButtonHTMLAttributes<HTMLElement>;
 type AnchorButtonProps = BaseButtonProps & AnchorHTMLAttributes<HTMLElement>;
 export type ButtonProps = Partial<NativeButtonProps & AnchorButtonProps>;
 
-export const Button: FC<ButtonProps> = (prop) => {
+const Button: FC<ButtonProps> = (prop) => {
   // 解构参数
-  const { btnType, className, disabled, size, children, href, ...restProps } = prop;
+  const { btnType, className, disabled, size, children, href, ...restProps } =
+    prop;
   // 组建类名
   const classNames = cx('z-btn', className, {
     [`z-btn-${size}`]: size,
@@ -37,7 +38,12 @@ export const Button: FC<ButtonProps> = (prop) => {
     );
   }
   return (
-    <button className={classNames} disabled={disabled} type="button" {...restProps}>
+    <button
+      className={classNames}
+      disabled={disabled}
+      type="button"
+      {...restProps}
+    >
       {children}
     </button>
   );
@@ -47,3 +53,4 @@ Button.defaultProps = {
   disabled: false,
   btnType: 'default',
 };
+export default Button;

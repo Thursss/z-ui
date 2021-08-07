@@ -16,7 +16,12 @@
   -ms-user-select: none;
   user-select: none;
   touch-action: manipulation;
-  @include button-size($btn-padding-y, $btn-padding-x, $btn-font-size, $border-radius);
+  @include button-size(
+    $btn-padding-y,
+    $btn-padding-x,
+    $btn-font-size,
+    $border-radius
+  );
   &:focus {
     border: 1px solid #1ff;
     outline: none;
@@ -33,10 +38,20 @@
 }
 
 .z-btn-lg {
-  @include button-size($btn-padding-y-lg, $btn-padding-x-lg, $btn-font-size-lg, $btn-border-radius-lg);
+  @include button-size(
+    $btn-padding-y-lg,
+    $btn-padding-x-lg,
+    $btn-font-size-lg,
+    $btn-border-radius-lg
+  );
 }
 .z-btn-sm {
-  @include button-size($btn-padding-y-sm, $btn-padding-x-sm, $btn-font-size-sm, $btn-border-radius-sm);
+  @include button-size(
+    $btn-padding-y-sm,
+    $btn-padding-x-sm,
+    $btn-font-size-sm,
+    $btn-border-radius-sm
+  );
 }
 
 .z-btn-primary {
@@ -47,7 +62,14 @@
 }
 
 .z-btn-default {
-  @include button-style($white, $gray-400, $body-color, $white, $primary, $primary);
+  @include button-style(
+    $white,
+    $gray-400,
+    $body-color,
+    $white,
+    $primary,
+    $primary
+  );
 }
 
 .z-btn-link {
