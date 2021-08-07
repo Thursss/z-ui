@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import React, { FC, ButtonHTMLAttributes, AnchorHTMLAttributes } from 'react';
 import cx from 'classnames';
 import { BaseProps } from '../../type/BaseProps';
 
@@ -9,40 +9,35 @@ export type ButtonType = 'primary' | 'default' | 'danger' | 'link';
 
 interface BaseButtonProps extends BaseProps {
   size?: ButtonSize;
-  type?: ButtonType;
+  btnType?: ButtonType;
   children: React.ReactNode;
   disabled?: boolean;
   href?: string;
-  onClick?: () => void;
 }
 
-export const Button: FC<BaseButtonProps> = (prop) => {
+type NativeButtonProps = BaseButtonProps & ButtonHTMLAttributes<HTMLElement>;
+type AnchorButtonProps = BaseButtonProps & AnchorHTMLAttributes<HTMLElement>;
+export type ButtonProps = Partial<NativeButtonProps & AnchorButtonProps>;
+
+export const Button: FC<ButtonProps> = (prop) => {
   // 解构参数
-  const { type, className, disabled, size, children, href, onClick } = prop;
+  const { btnType, className, disabled, size, children, href, ...restProps } = prop;
   // 组建类名
   const classNames = cx('z-btn', className, {
     [`z-btn-${size}`]: size,
-    [`z-btn-${type}`]: type,
-    disabled: type === 'link' && href && disabled,
+    [`z-btn-${btnType}`]: btnType,
+    disabled: btnType === 'link' && href && disabled,
   });
 
-  if (type === 'link' && href) {
+  if (btnType === 'link' && href) {
     return (
-      <a className={classNames} href={href}>
+      <a className={classNames} href={href} {...restProps}>
         {children}
       </a>
     );
   }
   return (
-    <button
-      className={classNames}
-      disabled={disabled}
-      onClick={() => {
-        console.log('button click');
-        if (onClick) onClick();
-      }}
-      type="button"
-    >
+    <button className={classNames} disabled={disabled} type="button" {...restProps}>
       {children}
     </button>
   );
@@ -50,5 +45,5 @@ export const Button: FC<BaseButtonProps> = (prop) => {
 
 Button.defaultProps = {
   disabled: false,
-  type: 'default',
+  btnType: 'default',
 };

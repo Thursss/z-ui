@@ -16,10 +16,58 @@
   -ms-user-select: none;
   user-select: none;
   touch-action: manipulation;
-  @include button-size(
-    $btn-padding-y,
-    $btn-padding-x,
-    $btn-font-size,
-    $border-radius
-  );
+  @include button-size($btn-padding-y, $btn-padding-x, $btn-font-size, $border-radius);
+  &:focus {
+    border: 1px solid #1ff;
+    outline: none;
+  }
+  &.disabled,
+  &[disabled] {
+    cursor: not-allowed;
+    box-shadow: none;
+    opacity: $btn-transition;
+    > * {
+      pointer-events: none;
+    }
+  }
+}
+
+.z-btn-lg {
+  @include button-size($btn-padding-y-lg, $btn-padding-x-lg, $btn-font-size-lg, $btn-border-radius-lg);
+}
+.z-btn-sm {
+  @include button-size($btn-padding-y-sm, $btn-padding-x-sm, $btn-font-size-sm, $btn-border-radius-sm);
+}
+
+.z-btn-primary {
+  @include button-style($primary, $primary, $white);
+}
+.z-btn-danger {
+  @include button-style($danger, $danger, $white);
+}
+
+.z-btn-default {
+  @include button-style($white, $gray-400, $body-color, $white, $primary, $primary);
+}
+
+.z-btn-link {
+  font-weight: $font-weight-normal;
+  color: $btn-link-color;
+  text-decoration: $link-decoration;
+  box-shadow: none;
+  &:hover {
+    color: $btn-link-hover-color;
+    text-decoration: $link-hover-decoration;
+  }
+  &:focus,
+  &.focus {
+    text-decoration: $link-hover-decoration;
+    box-shadow: none;
+  }
+  &:disabled,
+  &.disabled {
+    cursor: not-allowed;
+    color: $btn-link-disabled-color;
+    pointer-events: none;
+  }
 }

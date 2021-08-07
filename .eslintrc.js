@@ -42,8 +42,10 @@ module.exports = {
   // "warn" 或 1 - 开启规则，使用警告级别的错误：warn (不会导致程序退出)
   // "error" 或 2 - 开启规则，使用错误级别的错误：error (当被触发的时候，程序会退出)
   rules: {
-    'react/jsx-filename-extension': 'off',
+    'react/jsx-filename-extension': 0,
+    'react/jsx-props-no-spreading': 0,
     semi: 0,
+    'no-undef': 0,
     'no-unused-vars': [
       1,
       {
@@ -55,7 +57,7 @@ module.exports = {
       },
     ],
     'no-useless-escape': 2,
-    'prettier/prettier': 'warn',
+    'prettier/prettier': 1,
     'import/extensions': [2, 'never', { 'web.js': 'never', json: 'never' }],
     'import/no-extraneous-dependencies': [2, { devDependencies: true }],
     'import/no-unresolved': [2, { ignore: ['antd-mobile'] }],
