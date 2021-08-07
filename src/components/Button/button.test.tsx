@@ -8,6 +8,4 @@ test('should rendered successfully', () => {
   expect(element).toBeTruthy();
 });
 
-describe('test button component', () => {
-
-})
+describe('test button component', () => {});
