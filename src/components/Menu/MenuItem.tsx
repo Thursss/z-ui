@@ -13,13 +13,13 @@ const MenuItem: React.FC<MenuProps> = (props) => {
   const { className, children, style, disabled, index } = props;
   const content = useContext(MenuContent);
   const classes = cx('z-menu-item', className, {
-    'disabled': disabled,
-    'active': content.index === index
+    disabled: disabled,
+    active: content.index === index,
   });
 
   const handleClick = () => {
     if (content.onSelect) content.onSelect(index ?? 0);
-  }
+  };
   return (
     <li className={classes} style={style} onClick={handleClick}>
       {children}

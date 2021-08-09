@@ -24,16 +24,16 @@ const Menu: React.FC<MenuProps> = (props) => {
   const { className, children, style, mode, defaultIndex, onSelect } = props;
   const [currentActive, setActive] = useState(defaultIndex);
   const classes = cx('z-menu', className, {
-    'menu-vertical': mode === 'vertical'
+    'menu-vertical': mode === 'vertical',
   });
   const handleClick = (index: number) => {
     console.log(index);
     setActive(index);
     if (onSelect) onSelect(index);
-  }
+  };
   const passedContext: MenuContentProps = {
     index: currentActive ?? 0,
-    onSelect: handleClick
+    onSelect: handleClick,
   };
 
   return (
