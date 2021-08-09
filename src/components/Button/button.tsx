@@ -10,7 +10,6 @@ export type ButtonType = 'primary' | 'default' | 'danger' | 'link';
 interface BaseButtonProps extends BaseProps {
   size?: ButtonSize;
   btnType?: ButtonType;
-  children: React.ReactNode;
   disabled?: boolean;
   href?: string;
 }
@@ -24,7 +23,7 @@ const Button: FC<ButtonProps> = (prop) => {
   const { btnType, className, disabled, size, children, href, ...restProps } =
     prop;
   // 组建类名
-  const classNames = cx('z-btn', className, {
+  const classes = cx('z-btn', className, {
     [`z-btn-${size}`]: size,
     [`z-btn-${btnType}`]: btnType,
     disabled: btnType === 'link' && href && disabled,
@@ -32,14 +31,14 @@ const Button: FC<ButtonProps> = (prop) => {
 
   if (btnType === 'link' && href) {
     return (
-      <a className={classNames} href={href} {...restProps}>
+      <a className={classes} href={href} {...restProps}>
         {children}
       </a>
     );
   }
   return (
     <button
-      className={classNames}
+      className={classes}
       disabled={disabled}
       type="button"
       {...restProps}

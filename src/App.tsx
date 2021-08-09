@@ -1,11 +1,13 @@
 import React from 'react';
-import Button from './components/Button/index';
+import Button from './components/Button';
+import Menu, { MenuItem } from './components/Menu';
 
 function App() {
   return (
     <div className="App">
       <main>
-        <section>
+        <section className="btn-ground">
+          <h1>button</h1>
           <Button>default Button</Button>
           <Button disabled>Disabled Button</Button>
           <Button btnType="primary" size="sm">
@@ -20,6 +22,14 @@ function App() {
           <Button btnType="link" disabled href="http://localhost:3000/">
             disabled Link Button
           </Button>
+        </section>
+        <section className="menu-ground">
+          <h1>Menu</h1>
+          <Menu>
+            <MenuItem index={0}>test1</MenuItem>
+            <MenuItem index={1}>test2</MenuItem>
+            <MenuItem index={2}>test3</MenuItem>
+          </Menu>
         </section>
       </main>
     </div>
