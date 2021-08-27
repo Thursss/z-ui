@@ -46,6 +46,7 @@ module.exports = {
     'react/jsx-props-no-spreading': 0,
     'jsx-a11y/no-noninteractive-element-interactions': 0,
     'jsx-a11y/click-events-have-key-events': 0,
+    'jsx-a11y/no-static-element-interactions': 0,
     'no-undef': 0,
     'prettier/prettier': 0,
     'no-unused-vars': [
@@ -58,7 +59,9 @@ module.exports = {
         argsIgnorePattern: '^_|^err|^ev', // _xxx, err, error, ev, event
       },
     ],
+    'no-plusplus': ['error', { allowForLoopAfterthoughts: true }],
     semi: 1,
+    'no-debugger': 1,
     'no-empty-function': 1, //禁止空函数
     'no-unused-vars': 1, //禁止出现未使用过的变量
     eqeqeq: 2,

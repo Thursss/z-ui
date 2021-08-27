@@ -13,7 +13,7 @@ const MenuItem: React.FC<MenuProps> = (props) => {
   const { className, children, style, disabled, index } = props;
   const content = useContext(MenuContent);
   const classes = cx('z-menu-item', className, {
-    disabled: disabled,
+    disabled,
     active: content.index === index,
   });
 
