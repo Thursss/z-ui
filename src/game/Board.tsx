@@ -1,7 +1,14 @@
 import React, { FC, useState } from 'react';
 import Square from './Square';
 
+interface historyProps {
+  point: number;
+  old: null | string;
+  new: null | string;
+}
+
 const Board: FC<any> = () => {
+  const [history, setHistory] = useState<historyProps[]>([]);
   const [squareArr, setsquareArr] = useState<(string | null)[]>(
     Array(9).fill(null)
   );
@@ -29,11 +36,28 @@ const Board: FC<any> = () => {
   const handleClick = (i: number) => {
     if (squareArr[i] != null) return;
     const squareArrCopy = squareArr.slice();
-    setOperate(operate + 1);
     squareArrCopy[i] = operate % 2 === 0 ? 'X' : 'O';
+    history[operate] = {
+      point: i,
+      old: squareArr[i],
+      new: squareArrCopy[i],
+    };
+    setOperate(operate + 1);
+    setHistory(history);
     setsquareArr(squareArrCopy);
     const winner = calculateWinner(squareArrCopy);
     if (winner) alert(`winner is ${winner}`);
+  };
+
+  const goBack = (index: number) => {
+    let operateCopy = 0;
+    if (index <= operate) operateCopy = operate - index;
+    const squareArrCopy = squareArr.slice();
+    for (let i = history.length - 1; i >= operateCopy; i--) {
+      squareArrCopy[history[i].point] = history[i].old;
+    }
+    setOperate(operateCopy);
+    setsquareArr(squareArrCopy);
   };
 
   const renderSquare = (i: number) => {
@@ -41,9 +65,18 @@ const Board: FC<any> = () => {
   };
   return (
     <div>
-      <div className="status">{`Next player:  ${
-        operate % 2 === 0 ? 'X' : 'O'
-      }`}</div>
+      <div className="status">
+        {`Next player:  ${operate % 2 === 0 ? 'X' : 'O'}`}
+      </div>
+      <button
+        disabled={operate <= 0}
+        type="button"
+        onClick={() => {
+          goBack(1);
+        }}
+      >
+        悔棋
+      </button>
       <div className="board-row">
         {renderSquare(0)}
         {renderSquare(1)}
