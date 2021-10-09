@@ -1,6 +1,6 @@
 import React from 'react';
-import Button from './components/Button';
-import Menu, { MenuItem } from './components/Menu';
+import Button from './components/button';
+import Menu, { MenuItem } from './components/menu';
 
 function App() {
   return (

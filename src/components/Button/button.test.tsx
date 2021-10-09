@@ -1,6 +1,6 @@
 import React from 'react';
 import { render } from '@testing-library/react';
-import Button from './button';
+import Button from './Button';
 
 test('should rendered successfully', () => {
   const button = render(<Button>Base Button</Button>);
@@ -8,4 +8,4 @@ test('should rendered successfully', () => {
   expect(element).toBeTruthy();
 });
 
-describe('test button component', () => {});
+describe('test button component', () => { });
