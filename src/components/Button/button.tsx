@@ -52,4 +52,5 @@ Button.defaultProps = {
   disabled: false,
   btnType: 'default',
 };
+
 export default Button;

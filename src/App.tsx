@@ -1,6 +1,5 @@
 import React from 'react';
-import Button from './components/button';
-import Menu, { MenuItem } from './components/menu';
+import { Button, MenuItem, Menu, Card, Row, Col } from './components';
 
 function App() {
   return (
@@ -30,6 +29,30 @@ function App() {
             <MenuItem index={1}>test2</MenuItem>
             <MenuItem index={2}>test3</MenuItem>
           </Menu>
+        </section>
+        <section className="card-ground">
+          <h1>card</h1>
+          <Card title="card-test" extra="ccc" bordered hoverable></Card>
+          <Card title="card-test"></Card>
+        </section>
+        <section className="grid-ground">
+          <h1>card</h1>
+          <Row>
+            <Col span={6}>
+              <Card bordered>1</Card>
+            </Col>
+            <Col span={6}>
+              <Card bordered>1</Card>
+            </Col>
+            <Col span={6}>
+              <Card bordered hoverable>
+                1
+              </Card>
+            </Col>
+            <Col span={6}>
+              <Card bordered>1</Card>
+            </Col>
+          </Row>
         </section>
       </main>
     </div>

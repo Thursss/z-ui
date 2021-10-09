@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import cx from 'classnames';
-import { MenuContent } from './Menu';
+import { MenuContent } from './menu';
 import { BaseProps } from '../../type/BaseProps';
 
 export interface MenuProps extends BaseProps {

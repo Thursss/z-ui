@@ -4,5 +4,10 @@
 //mixin
 
 // button
+@import '../components/button/style';
 
-@import '../components/Button/style';
+//布局
+@import '../components/grid/style';
+
+// 卡片
+@import '../components/card/style';

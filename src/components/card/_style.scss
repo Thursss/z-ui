@@ -1,0 +1,50 @@
+.z-card {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  color: #000000d9;
+  font-size: 14px;
+  font-variant: tabular-nums;
+  line-height: 1.5715;
+  list-style: none;
+  font-feature-settings: 'tnum';
+  position: relative;
+  background: #fff;
+  border-radius: 2px;
+}
+.z-card_hoverable {
+  cursor: pointer;
+  transition: box-shadow 0.3s, border-color 0.3s;
+  &:hover {
+    border-color: transparent;
+    box-shadow: 0 1px 2px -2px #00000029, 0 3px 6px #0000001f,
+      0 5px 12px 4px #00000017;
+  }
+}
+.z-card_bordered {
+  border: 1px solid #f0f0f0;
+}
+.z-card-head {
+  display: flex;
+  align-items: center;
+  padding: 0 20px;
+  .z-card-head-title {
+    display: inline-block;
+    flex: 1;
+    padding: 14px 0;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+  .z-card-extra {
+    float: right;
+    margin-left: auto;
+    padding: 14px 0;
+    color: #000000d9;
+    font-weight: 400;
+    font-size: 14px;
+  }
+}
+.z-card-body {
+  padding: 20px;
+}

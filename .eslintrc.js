@@ -49,6 +49,7 @@ module.exports = {
     'jsx-a11y/no-static-element-interactions': 0,
     'no-undef': 0,
     'prettier/prettier': 0,
+    'react/self-closing-comp': 0,
     'no-unused-vars': [
       1,
       {

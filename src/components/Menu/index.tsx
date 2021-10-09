@@ -1,5 +1,5 @@
-import Menu, { MenuProps } from './Menu';
-import MenuItem from './MenuItem';
+import Menu, { MenuProps } from './menu';
+import MenuItem from './menuItem';
 
 export { MenuItem };
 
