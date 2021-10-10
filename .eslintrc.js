@@ -65,6 +65,7 @@ module.exports = {
     'no-debugger': 1,
     'no-empty-function': 1, //禁止空函数
     'no-unused-vars': 1, //禁止出现未使用过的变量
+    'import/no-unresolved': 1,
     eqeqeq: 2,
     'no-multi-spaces': 2, //禁止使用多个空格
     'space-infix-ops': 2, // 要求操作符周围有空格
