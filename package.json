@@ -29,7 +29,8 @@
     "build:css": "node-sass ./src/styles/index.scss ./build/index.css",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "push": "git push"
   },
   "eslintConfig": {
     "extends": [
